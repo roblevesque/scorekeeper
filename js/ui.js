@@ -162,6 +162,7 @@ $(document).on('change', '.rounds-input', async function(){
 
 
 $('.invisibletab').tabs();
+$('.sidenav').sidenav();  
 });
 
 
