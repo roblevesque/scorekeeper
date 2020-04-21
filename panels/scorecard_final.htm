@@ -1,4 +1,7 @@
 <div class="row">
+  <div class="col s1 right-align">
+    <b>  </b>
+  </div>
       <div class="col s1 right-align">
         <b> Team </b>
       </div>
@@ -7,9 +10,12 @@
     {% endfor %}
       <div class="col s1 center-align"> <b> Final Total </b></div>
   </div>
+
     {% for team in teams_sorted %}
     <div class="row">
-          <div class="col s1 right-align"> <i class="blue-text text-darken-3"> {{ loop.index }} </i> </div>
+          <div class="col s1 right-align"> <i class="blue-text text-darken-3">
+            {{ team.pos }}
+        </i> </div>
           <div class="col s1 right-align"> <i class="red-text text-darken-3"> {{ team.name }} </i> </div>
           {% for round in rounds %}
             <div class="col s1 center-align">{{  team.total_data[round.id] }}  </div>

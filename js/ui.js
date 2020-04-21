@@ -229,6 +229,20 @@ async function updateFinalScoresheet(env) {
       return 0;
     }
   });
+  teams_sorted.forEach((item, i) => {
+    teams_sorted[i].pos = i+1
+    console.log(teams_sorted)
+    try {
+    if ( i != 0 ) {
+      a = item.total_data.reduce(function(a,b) {return a+b;});
+      b = teams_sorted[i-1].total_data.reduce(function(a,b) {return a+b;})
+      if (a == b ){
+        teams_sorted[i].pos = teams_sorted[i-1].pos
+        console.log(teams_sorted[i])
+      }
+    }
+  } catch {}
+  });
 
   $('#final-sheet').html(env.render('panels/scorecard_final.htm', {rounds: rounds, teams: teams, totals: totals, teams_sorted:teams_sorted}))
 }
