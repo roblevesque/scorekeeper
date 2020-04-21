@@ -1,0 +1,27 @@
+{% block content %}
+<h2> Teams </h2>
+<button class="waves-effect waves-light red btn add-team"><i class="material-icons left">add</i> Add Team </button>
+<table class="highlight responsive-table" id="teams-table">
+  <thead>
+    <tr>
+      <th class="s1"> </th>
+      <th> Team Name </th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for team in teams %}
+    <tr>
+      <td class="s1">
+        <ul>
+          <li><a href="#" class="delete-team"><i class="material-icons">remove</i></a></li>
+        </ul>
+      </td>
+        <td>
+        <input class="inline team-input" data-field="name" type="text" data-id="{{team.id}}" value="{{ team.name }}"> </input>
+      </td>
+
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

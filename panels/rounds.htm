@@ -1,0 +1,32 @@
+  {% block content %}
+<h2> Rounds </h2>
+<button class="waves-effect waves-light red btn add-round"><i class="material-icons left">add</i> Add Round </button>
+<table class="highlight responsive-table" id="rounds-table">
+  <thead>
+    <tr>
+      <th class="s1"> </th>
+      <th> Rounds Name/Number </th>
+      <th> Questions </th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for round in rounds %}
+    <tr data-id="{{round.id}}" data-rname="round.name">
+      <td class="s1">
+        <ul>
+          <li><a href="#" class="delete-round"><i class="material-icons">remove</i></a></li>
+        </ul>
+      </td>
+        <td>
+        <input class="inline rounds-input" data-field="name" type="text" data-id="{{round.id}}" value="{{ round.name }}"> </input>
+      </td>
+      <td>
+          <input class="rounds-input" type="number" data-field="questions" value="{{round.questions}}" data-id="{{round.id}}" size="4" min="0" max="1000" placeholder="# of ?s">
+      </td>
+
+
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

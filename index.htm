@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> ScoreKeeper </title>
+      <!-- Style sheets -->
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <nav class="light-red lighten-1" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">ScoreKeeper</a>
+            <ul class="right hide-on-med-and-down invisibletab">
+              <li class="tab"><a href="#teams_panel" class="active"> Teams </a></li>
+              <li class="tab"><a href="#rounds_panel"> Rounds </a></li>
+              <li class="tab"><a href="#scorecard_panel"> Scorecard </a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav invisibletab">
+              <li class="tab"><a href="#teams_panel" class="active">Teams</a></li>
+              <li class="tab"><a href="#rounds_panel">Rounds</a></li>
+              <li class="tab"><a href="#scorecard_panel">Scorecard</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+<div class="section no-pad-bot" id="index-banner">
+  <div class="row">
+    <div id="teams_panel" class="col s12">  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div> </div>
+    <div id="rounds_panel" class="col s12"></div>
+    <div id="scorecard_panel" class="col s12"></div>
+  </div>
+</div>
+
+  <!-- Javascript loading -->
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="js/sk.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nunjucks.min.js"></script>
+  </body>
+</html>
