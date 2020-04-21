@@ -124,7 +124,10 @@ $(document).on('change', '.scorecard-input', async function() {
   })
   pointobj['points'] = points
 
+  $(document).find('.round-totaler[data-round="' + pointobj['round'] + '"][data-team="' + pointobj['team'] + '"]').html( points.reduce(function(a,b) {return a+b;}) )
+
   await ScoreKeeper.Totals.put(pointobj)
+
   updateFinalScoresheet(env)
 
 });

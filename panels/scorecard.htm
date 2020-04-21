@@ -40,7 +40,7 @@
               {% for i in range(1, (round.questions|int)+1) %}
                 <div class="col s1 center-align"> <input type="number" data-team="{{ team.id }}" data-round="{{round.id}}" data-question="{{ i }}" value="{{ team.point_data[round.id][i] }}" class="scorecard-input"></input></div>
               {% endfor %}
-              <div class="col right"><b data-round="{{round.id}}">  {{ team.total_data[round.id] }}   </b> </div>
+              <div class="col right"><b class="round-totaler" data-team="{{team.id}}" data-round="{{round.id}}">  {{ team.total_data[round.id] }}   </b> </div>
         </div>
         {% endfor %}
     </div>
