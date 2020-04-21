@@ -2,16 +2,16 @@
 <h2> Scorecard </h2>
 <div class="container-responsive">
   <div class="row">
-    <div class="col s1">
+    <div class="col s1 green-text text-darken-2">
     <ul class="tabs rounds-tabs">
       {% for round in rounds %}
       <li class="tab">
-        <a href="#round-{{round.id}}" class="{{ "active" if loop.first }}">{{ round.name }}</a>
+        <a href="#round-{{round.id}}" class="green-text text-darken-2 {{ "active" if loop.first }}">{{ round.name }}</a>
       </li>
 
       {% endfor %}
       <li class="tab">
-        <a href="#final-sheet"> Final Totals </a>
+        <a href="#final-sheet" class="green-text text-darken-4"> Final Totals </a>
       </li>
     </ul>
     </div>
@@ -36,7 +36,7 @@
         </div>
         {% for team in teams %}
         <div class="row scorecard-row">
-              <div class="col s1 right-align"> <i class="red-text text-darken-3"> {{ team.name }} </i> </div>
+              <div class="col s1 right-align"> <i class="green-text text-darken-3"> {{ team.name }} </i> </div>
               {% for i in range(1, (round.questions|int)+1) %}
                 <div class="col s1 center-align"> <input type="number" data-team="{{ team.id }}" data-round="{{round.id}}" data-question="{{ i }}" value="{{ team.point_data[round.id][i] }}" class="scorecard-input"></input></div>
               {% endfor %}
