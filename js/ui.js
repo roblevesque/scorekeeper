@@ -212,13 +212,13 @@ async function updateFinalScoresheet(env) {
 
   teams_sorted = teams.sort(function(a,b) {
     try {
-      a_s = a.total_data.filter(x => x).reduce(function(a,b) {return a+b;} );
+      a_s = a.total_data.reduce(function(a,b) {return a+b;} );
     }
     catch {
       a_s = 0
     }
     try {
-      b_s = b.total_data.filter(x => x).reduce(function(a,b) {return a+b;});
+      b_s = b.total_data.reduce(function(a,b) {return a+b;});
     }
     catch {
       b_s = 0
@@ -237,8 +237,8 @@ async function updateFinalScoresheet(env) {
     teams_sorted[i].pos = i+1
     try {
     if ( i != 0 ) {
-      a = item.total_data.filter(x => x).reduce(function(a,b) {return a+b;});
-      b = teams_sorted[i-1].total_data.filter(x => x).reduce(function(a,b) {return a+b;})
+      a = item.total_data.reduce(function(a,b) {return a+b;});
+      b = teams_sorted[i-1].total_data.reduce(function(a,b) {return a+b;})
       if (a == b ){
         teams_sorted[i].pos = teams_sorted[i-1].pos
       }
