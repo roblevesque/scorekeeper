@@ -6,7 +6,7 @@ var env= nunjucks.configure('')
 
 env.addFilter('add', function(numbers) {
   try {
-    return numbers.reduce(function(a,b) {return a+b})
+    return numbers.filter(x => x).reduce(function(a,b) {return a+b})
   }
   catch { return 0; }
 });
@@ -124,7 +124,7 @@ $(document).on('change', '.scorecard-input', async function() {
   })
   pointobj['points'] = points
 
-  $(document).find('.round-totaler[data-round="' + pointobj['round'] + '"][data-team="' + pointobj['team'] + '"]').html( points.reduce(function(a,b) {return a+b;}) )
+  $(document).find('.round-totaler[data-round="' + pointobj['round'] + '"][data-team="' + pointobj['team'] + '"]').html( points.filter(x => x).reduce(function(a,b) {return a+b;}) )
 
   await ScoreKeeper.Totals.put(pointobj)
 
@@ -162,7 +162,7 @@ $(document).on('change', '.rounds-input', async function(){
 
 
 $('.invisibletab').tabs();
-$('.sidenav').sidenav();  
+$('.sidenav').sidenav();
 });
 
 
@@ -177,7 +177,7 @@ async function updateScoreSheets(env) {
      totals.forEach((total, j) => {
        if ( total.team == team.id ) {
          point_data[total.round] = total.points
-         total_data[total.round] = total.points.reduce(function(a,b){return a+b;})
+         total_data[total.round] = total.points.filter(x => x).reduce(function(a,b){return a+b;})
        }
      });
      teams[i]['point_data'] = point_data
@@ -199,7 +199,7 @@ async function updateFinalScoresheet(env) {
       if ( total.team == team.id ) {
         point_data[total.round] = total.points
         try {
-          total_data[total.round] = total.points.reduce(function(a,b){return a+b;})
+          total_data[total.round] = total.points.filter(x => x).reduce(function(a,b){return a+b;})
         } catch {
           total_data[total.round] = 0
         }
@@ -212,13 +212,13 @@ async function updateFinalScoresheet(env) {
 
   teams_sorted = teams.sort(function(a,b) {
     try {
-      a_s = a.total_data.reduce(function(a,b) {return a+b;} );
+      a_s = a.total_data.filter(x => x).reduce(function(a,b) {return a+b;} );
     }
     catch {
       a_s = 0
     }
     try {
-      b_s = b.total_data.reduce(function(a,b) {return a+b;});
+      b_s = b.total_data.filter(x => x).reduce(function(a,b) {return a+b;});
     }
     catch {
       b_s = 0
@@ -237,8 +237,8 @@ async function updateFinalScoresheet(env) {
     teams_sorted[i].pos = i+1
     try {
     if ( i != 0 ) {
-      a = item.total_data.reduce(function(a,b) {return a+b;});
-      b = teams_sorted[i-1].total_data.reduce(function(a,b) {return a+b;})
+      a = item.total_data.filter(x => x).reduce(function(a,b) {return a+b;});
+      b = teams_sorted[i-1].total_data.filter(x => x).reduce(function(a,b) {return a+b;})
       if (a == b ){
         teams_sorted[i].pos = teams_sorted[i-1].pos
       }
