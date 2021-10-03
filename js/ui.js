@@ -120,11 +120,10 @@ $(document).on('change', '.scorecard-input', async function() {
   pointobj['team'] = $(this).data('team')
   points = []
   $(this).parent().parent().find('.scorecard-input').each(function(index, value) {
-      points[$(this).data('question')] =  parseInt($(this).val())
+      points[$(this).data('question')] =  isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val())
   })
   pointobj['points'] = points
-
-  $(document).find('.round-totaler[data-round="' + pointobj['round'] + '"][data-team="' + pointobj['team'] + '"]').html( points.filter(x => x).reduce(function(a,b) {return a+b;}) )
+  $(document).find('.round-totaler[data-round="' + pointobj['round'] + '"][data-team="' + pointobj['team'] + '"]').html( points.filter(x => !isNaN(x)).reduce(function(a,b) {return a+b;}) )
 
   await ScoreKeeper.Totals.put(pointobj)
 
