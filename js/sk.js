@@ -4,10 +4,20 @@ var ScoreKeeper = (function() {
   return {
     Database:(function(){
       return {
-        export:async function(){
+        export:async function() {
           const obj = await db.export({prettyJson: true})
           return obj
-        }
+        },
+        import:async function( input ) {
+          if (input != null){
+            db.teams.clear();
+            db.rounds.clear();
+            db.totals.clear();
+            db = await db.import(input);
+            return true;
+          }
+          return false;
+        },
       }
     })(),
     Teams:(function() {

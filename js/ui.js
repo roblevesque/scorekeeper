@@ -59,10 +59,33 @@ $(document).on('click', '.wipe_all', function() {
 $(document).on('click', '.download_db', function() {
   try {
       const blob = ScoreKeeper.Database.export().then(value => { download(value, "scorekeeper-export.json", "application/json");   } )
-    //download(blob, "scorekeeper-export.json", "application/json");
     } catch (error) {
         console.error(''+error);
     }
+});
+
+
+// Trigger upload dialog
+$(document).on('click', '.upload_db', function() {
+  $(document).find('#fileupload').click();
+
+});
+
+// Execute upload
+$(document).on('change', '#fileupload', function() {
+  var file = $(this).prop('files');
+
+  try {
+    ScoreKeeper.Database.import(file[0])
+  } catch (error) {
+      console.log(''+error);
+  }
+  finally {
+    location.reload()
+  }
+
+
+
 });
 
 
