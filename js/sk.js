@@ -2,6 +2,14 @@ var ScoreKeeper = (function() {
   var db = new Dexie("sk_db");
   db.version(1).stores({teams: "++id,&name", rounds: "++id,name,questions", totals: "++id,[round+team],points" })
   return {
+    Database:(function(){
+      return {
+        export:async function(){
+          const obj = await db.export({prettyJson: true})
+          return obj
+        }
+      }
+    })(),
     Teams:(function() {
         return {
           add:async function( query ) {

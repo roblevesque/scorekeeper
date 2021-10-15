@@ -40,16 +40,29 @@ $(".nav-wrapper .tab a").click(function() {
   window.location.hash = id;
 });
 
+// Wipe scoresheet data, keeping teams and rounds
 $(document).on('click', '.wipe_scores', function() {
   ScoreKeeper.Totals.clear()
   updateScoreSheets(env)
 });
 
+// Wipe all user data in DB. Scores, Rounds and Teams incldued
 $(document).on('click', '.wipe_all', function() {
   ScoreKeeper.Totals.clear()
   ScoreKeeper.Rounds.clear()
   ScoreKeeper.Teams.clear()
  location.reload();
+});
+
+
+// Download databases
+$(document).on('click', '.download_db', function() {
+  try {
+      const blob = ScoreKeeper.Database.export().then(value => { download(value, "scorekeeper-export.json", "application/json");   } )
+    //download(blob, "scorekeeper-export.json", "application/json");
+    } catch (error) {
+        console.error(''+error);
+    }
 });
 
 
