@@ -24,8 +24,33 @@ env.addFilter('add', function(numbers) {
  $('#rounds_panel').html( env.render('panels/rounds.htm', {rounds: rounds }))
 })();
 
+
+// Load Util panel
+(async function () {
+ $('#utils_panel').html( env.render('panels/utils.htm', {None: null}))
+})();
+
+
 /// Load Scorecard
 updateScoreSheets(env)
+
+// Store tab for refresh
+$(".nav-wrapper .tab a").click(function() {
+  var id = $(this).attr("href");
+  window.location.hash = id;
+});
+
+$(document).on('click', '.wipe_scores', function() {
+  ScoreKeeper.Totals.clear()
+  updateScoreSheets(env)
+});
+
+$(document).on('click', '.wipe_all', function() {
+  ScoreKeeper.Totals.clear()
+  ScoreKeeper.Rounds.clear()
+  ScoreKeeper.Teams.clear()
+ location.reload();
+});
 
 
 $(document).on('click', '.add-team', function() {
@@ -246,13 +271,6 @@ async function updateFinalScoresheet(env) {
   });
 
 
-  $('#final-sheet').html(env.render('panels/scorecard_final.htm', {rounds: rounds, teams: teams, totals: totals, teams_sorted:teams_sorted}))
-
-
-// Store tab for refresh
-$(".nav-wrapper .tab a").click(function() {
-  var id = $(this).attr("href");
-  window.location.hash = id;
-});
+$('#final-sheet').html(env.render('panels/scorecard_final.htm', {rounds: rounds, teams: teams, totals: totals, teams_sorted:teams_sorted}))
 
 }
