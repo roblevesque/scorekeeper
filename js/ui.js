@@ -176,7 +176,7 @@ async function updateScoreSheets(env) {
      totals.forEach((total, j) => {
        if ( total.team == team.id ) {
          point_data[total.round] = total.points
-         total_data[total.round] = total.points.filter(x => x).reduce(function(a,b){return a+b;})
+         total_data[total.round] = total.points.filter(x => x).reduce(function(a,b){return a+b;}, 0)
        }
      });
      teams[i]['point_data'] = point_data
