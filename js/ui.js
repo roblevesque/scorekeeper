@@ -250,7 +250,7 @@ async function updateFinalScoresheet(env) {
 
 
 // Store tab for refresh
-$(".tab a").click(function() {
+$(".nav-wrapper .tab a").click(function() {
   var id = $(this).attr("href");
   window.location.hash = id;
 });
