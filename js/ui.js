@@ -245,5 +245,14 @@ async function updateFinalScoresheet(env) {
   } catch {}
   });
 
+
   $('#final-sheet').html(env.render('panels/scorecard_final.htm', {rounds: rounds, teams: teams, totals: totals, teams_sorted:teams_sorted}))
+
+
+// Store tab for refresh
+$(".tab a").click(function() {
+  var id = $(this).attr("href");
+  window.location.hash = id;
+});
+
 }
