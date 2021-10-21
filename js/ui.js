@@ -2,7 +2,8 @@
 $(document).ready(function(){
 
 //var env = new nunjucks.Environment();
-var env= nunjucks.configure('')
+var env = nunjucks.configure('')
+
 
 env.addFilter('add', function(numbers) {
   try {
@@ -11,9 +12,8 @@ env.addFilter('add', function(numbers) {
   catch { return 0; }
 });
 
-
 // Load Teams panel
- (async function () {
+(async function () {
   teams =  await ScoreKeeper.Teams.list()
   $('#teams_panel').html( env.render('panels/teams.htm', {teams: teams }))
 })();
@@ -27,7 +27,7 @@ env.addFilter('add', function(numbers) {
 
 // Load Util panel
 (async function () {
- $('#utils_panel').html( env.render('panels/utils.htm', {None: null}))
+  $('#utils_panel').html( env.render('panels/utils.htm', {None: null}))
 })();
 
 
