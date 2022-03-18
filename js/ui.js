@@ -219,10 +219,16 @@ $(document).on('change', '.rounds-input', async function(){
   updateScoreSheets(env)
 });
 
+// Debug log modal open
+$(document).on('click', '.debug_log', function() {
+  $(document).find('.logholder').html(JSON.stringify(console.history, undefined, 2));
+  $('#debug-log').modal('open');
+});
 
 
 $('.invisibletab').tabs();
 $('.sidenav').sidenav();
+$('.modal').modal();
 });
 
 

@@ -4,13 +4,22 @@
   <input type="file" id="fileupload" style="display:none;" />
   <button class="waves-effect waves-light green btn download_db" style="color:black;"><i class="material-icons left">file_download</i> Download Database </button>
   <button class="waves-effect waves-light green btn upload_db" style="color:black;"><i class="material-icons left">file_upload</i> Upload Database </button>
+  <button class="waves-effect waves-light green btn debug_log" style="color:black;"><i class="material-icons left">change_history</i> Show Debug Log </button>
   <p></p>
   <button class="waves-effect waves-light yellow btn wipe_scores" style="color:black;"><i class="material-icons left">clear</i> Clear Scores </button>
   <button class="waves-effect waves-light red btn wipe_all"><i class="material-icons left">warning</i> Clear Everything </button>
   <p></p>
 
 </div>
-<script>
+<!-- Debug Structure -->
+ <div id="debug-log" class="modal">
+   <div class="modal-content">
+     <textarea class="logholder">
 
-</script>
+     </textarea>
+   </div>
+   <div class="modal-footer">
+     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+   </div>
+ </div>
 {% endblock %}
