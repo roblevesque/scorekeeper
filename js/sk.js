@@ -23,8 +23,13 @@ var ScoreKeeper = (function() {
     Teams:(function() {
         return {
           add:async function( query ) {
-             new_id = await db.teams.put({name: query.name});
-             return new_id;
+             try {
+               new_id = await db.teams.put({name: query.name});
+               return new_id;
+            }
+            catch (e) {
+             console.error(e)
+            }
           }, // End ScoreKeeper.Teams.add()
           list:Dexie.async(function* () {
             rteams = yield db.teams.toArray();
@@ -35,7 +40,12 @@ var ScoreKeeper = (function() {
             return team;
           }, // End ScoreKeeper.Teams.get()
           delete:function(team_id) {
-            db.teams.delete(team_id)
+            try {
+              db.teams.delete(team_id)
+            }
+            catch (e) {
+              console.error(e)
+            }
           }, // End ScoreKeeper.Teams.delete()
           update:function(query) {
             db.teams.put(query)

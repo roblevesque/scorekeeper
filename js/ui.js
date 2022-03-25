@@ -46,6 +46,12 @@ $(document).on('click', '.wipe_scores', function() {
   updateScoreSheets(env)
 });
 
+// Wipe Teams keeping rounds.
+$(document).on('click', '.wipe_teams', function() {
+  ScoreKeeper.Teams.clear()
+  location.reload();
+});
+
 // Wipe all user data in DB. Scores, Rounds and Teams incldued
 $(document).on('click', '.wipe_all', function() {
   ScoreKeeper.Totals.clear()
@@ -102,6 +108,7 @@ $(document).on('click', '.add-team', function() {
 
     </tr>`;
     $('#teams-table').append(line)
+    $('#teams-table').find('input.team-input').last().focus()
 
 
 });
@@ -114,6 +121,7 @@ $(document).on('click', '.delete-team', async function() {
       ScoreKeeper.Teams.delete(obj.id)
     }
     $(row).remove()
+    updateScoreSheets(env)
 
 });
 

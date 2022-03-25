@@ -13,11 +13,11 @@
     <tr>
       <td class="s1">
         <ul>
-          <li><a href="#" class="delete-team"><i class="material-icons">remove</i></a></li>
+          <li><a href="#" class="delete-team" tabindex="-1"><i class="material-icons">remove</i></a></li>
         </ul>
       </td>
         <td>
-        <input class="inline team-input" data-field="name" type="text" data-id="{{team.id}}" value="{{ team.name }}"> </input>
+        <input class="inline team-input" tabindex="{{ loop.index }}" data-field="name" type="text" data-id="{{ team.id }}" value="{{ team.name }}"> </input>
       </td>
 
       </tr>
