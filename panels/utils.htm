@@ -1,15 +1,17 @@
 {% block content %}
 <h2> ScoreKeeper Utilities </h2>
-<div class="container">
-  <input type="file" id="fileupload" style="display:none;" />
-  <button class="waves-effect waves-light green btn download_db" style="color:black;"><i class="material-icons left">file_download</i> Download Database </button>
-  <button class="waves-effect waves-light green btn upload_db" style="color:black;"><i class="material-icons left">file_upload</i> Upload Database </button>
-  <button class="waves-effect waves-light green btn debug_log" style="color:black;"><i class="material-icons left">change_history</i> Show Debug Log </button>
-  <p></p>
-  <button class="waves-effect waves-light yellow btn wipe_scores" style="color:black;"><i class="material-icons left">clear</i> Clear Scores </button>
-  <button class="waves-effect waves-light orange btn wipe_teams" style="color:black;"><i class="material-icons left">group</i> Clear Teams </button>
-  <button class="waves-effect waves-light red btn wipe_all"><i class="material-icons left">warning</i> Clear Everything </button>
-  <p></p>
+<div class="container button-box">
+  <div class="button-row">
+    <input type="file" id="fileupload" style="display:none;" />
+    <button class="waves-effect waves-light green btn download_db" style="color:black;"><i class="material-icons left">file_download</i> Download Database </button>
+    <button class="waves-effect waves-light green btn upload_db" style="color:black;"><i class="material-icons left">file_upload</i> Upload Database </button>
+    <button class="waves-effect waves-light green btn debug_log" style="color:black;"><i class="material-icons left">change_history</i> Show Debug Log </button>
+  </div>
+  <div class="button-row">
+    <button class="waves-effect waves-light yellow btn wipe_scores" style="color:black;"><i class="material-icons left">clear</i> Clear Scores </button>
+    <button class="waves-effect waves-light orange btn wipe_teams" style="color:black;"><i class="material-icons left">group</i> Clear Teams </button>
+    <button class="waves-effect waves-light red btn wipe_all"><i class="material-icons left">warning</i> Clear Everything </button>
+  </div>
 
 </div>
 <!-- Debug Structure -->
